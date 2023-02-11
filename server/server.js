@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 3000;
 
 const DB = process.env.MONGO_URI.replace("<password>", process.env.DB_PASSWORD);
 
+mongoose.set("strictQuery", false);
+
 mongoose
   .connect(DB, {
     useNewUrlParser: true,

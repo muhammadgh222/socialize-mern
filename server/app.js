@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import postRoutes from "./routes/postRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 import ErrorHandler from "./utilities/ErrorHandler.js";
 import AppError from "./utilities/AppError.js";
 
@@ -19,6 +20,7 @@ app.get("/api/", (req, res) => {
 });
 
 app.use("/api/posts", postRoutes);
+app.use("/api/auth", authRoutes);
 
 app.all("*", (req, res, next) => {
   return next(new AppError("There is no such page", 404));
